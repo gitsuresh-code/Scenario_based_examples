@@ -1,0 +1,8 @@
+- name: Identify new hosts
+  hosts: all
+  tasks:
+    - name: Add to new hosts group
+      add_host:
+        name: "{{ inventory_hostname }}"
+        groups: new_hosts
+      when: ansible_date_time.epoch > 'recent_timestamp'
