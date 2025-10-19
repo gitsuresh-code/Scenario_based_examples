@@ -8,4 +8,4 @@
       add_host:
         name: "{{ inventory_hostname }}"
         groups: new_hosts
-      when: ansible_date_time.epoch | int > recent_timestamp | int
+      when: ansible_date_time.epoch | int < recent_timestamp | int
